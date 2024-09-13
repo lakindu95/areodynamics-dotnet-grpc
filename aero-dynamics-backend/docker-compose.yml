@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  areodynamics.api:
+    image: ${DOCKER_REGISTRY-}areodynamics.api
+    build:
+      context: .
+      dockerfile: AreoDynamics.API/Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - flightsgrpcservice
+    networks:
+      - app-network
+
+  flightsgrpcservice:
+    image: ${DOCKER_REGISTRY-}flightsgrpcservice
+    build:
+      context: .
+      dockerfile: FlightsGrpcService/Dockerfile
+    ports:
+      - "5263:5263"
+networks:
+  app-network:
+    driver: bridge

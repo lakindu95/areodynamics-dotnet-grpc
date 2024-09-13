@@ -1,0 +1,9 @@
+TO DO List
+
+1. Improve the structure of the web application
+2. Improve unit tests in the backend modularizing 
+3. Handle the environment variables 
+4. Handle app secrets 
+5. Solving the issue with running two docker compose files
+6. Optimize Docker for frontend load time
+7. CI/CD implementation

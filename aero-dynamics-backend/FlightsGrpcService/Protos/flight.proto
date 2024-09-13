@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option csharp_namespace = "FlightsGrpcService.Protos";
+
+service FlightService {
+	rpc GetFlightList (Empty) returns (Flights);
+    rpc GetFlight (GetFlightDetailRequest) returns (FlightDetail);
+	rpc AddFlights (AddFlightDetailsRequest) returns (Flights);
+	rpc UpdateFlight (UpdateFlightDetailRequest) returns (FlightDetail);
+}
+
+message Empty{
+
+}
+
+message FlightDetail {
+	int32 FlightId = 1;
+	string AircraftRegistrationNo = 2;
+	string Destination = 3;
+	int32 NumberOfPassengers = 4;
+	string Note = 5;
+	double FlightCost = 6;
+}
+
+message UpdateFlightDetails {
+	int32 FlightId = 1;
+	int32 NumberOfPassengers = 2;
+	string Note = 3;
+}
+
+message AddFlightDetailsRequest {
+	repeated FlightDetail items = 1;
+}
+
+message UpdateFlightDetailRequest {
+	FlightDetail flight = 1;
+}
+
+message GetFlightDetailRequest {
+	int32 flightId = 1;	
+}
+
+message Flights {
+  repeated FlightDetail items = 1;
+}

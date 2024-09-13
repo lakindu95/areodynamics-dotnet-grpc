@@ -1,0 +1,22 @@
+{
+  "profiles": {
+    "FlightsGrpcService": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5263"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "environmentVariables": {
+        "ASPNETCORE_HTTP_PORTS": "5263"
+      },
+      "httpPort": 5263,
+      "publishAllPorts": true,
+      "useSSL": false
+    }
+  }
+}

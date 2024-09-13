@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  vuejs-app:
+    container_name: vuejs-container
+    image: vuejs-app-image
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8085:8085"
+    command: npm run serve
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
